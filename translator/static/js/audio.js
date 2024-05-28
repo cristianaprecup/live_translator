@@ -1,3 +1,5 @@
+// live_translation/translator/static/js/audio.js
+
 let recorder;
 let audioContext;
 let gumStream;
@@ -74,8 +76,25 @@ function stopRecording() {
             // Reset buttons
             document.querySelector("button[onclick='stopRecording()']").disabled = true;
             document.querySelector("button[onclick='startRecording()']").disabled = false;
+
+            // Fetch and display translation history
+            fetchTranslationHistory();
         });
     } else {
         console.error("Recorder not initialized");
     }
+}
+
+async function fetchTranslationHistory() {
+    const response = await fetch('/translator/translation_history/');
+    const history = await response.json();
+    const historyContainer = document.getElementById("translationHistory");
+    historyContainer.innerHTML = history.map(item => `
+        <div>
+            <strong>Original:</strong> ${item.original_text}<br>
+            <strong>Translated:</strong> ${item.translated_text}<br>
+            <em>${new Date(item.timestamp).toLocaleString()}</em>
+        </div>
+        <hr>
+    `).join('');
 }

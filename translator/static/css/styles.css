@@ -1,0 +1,109 @@
+/* General styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+    color: #333;
+}
+
+header {
+    background-color: #00796b;
+    color: white;
+    padding: 1.5rem;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+main {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 1rem;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+h1, h2 {
+    color: #00796b;
+    margin-bottom: 1rem;
+}
+
+button {
+    background-color: #00796b;
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    margin: 0.5rem 0;
+    cursor: pointer;
+    font-size: 1rem;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+button:hover:not(:disabled) {
+    background-color: #005a4f;
+    transform: translateY(-2px);
+}
+
+button:active:not(:disabled) {
+    background-color: #004237;
+    transform: translateY(0);
+}
+
+p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+audio {
+    margin-top: 1rem;
+    width: 100%;
+    outline: none;
+}
+
+#translatedText {
+    margin: 1.5rem 0;
+    padding: 1rem;
+    background-color: #e0f2f1;
+    border-left: 4px solid #00796b;
+    border-radius: 4px;
+    font-size: 1.2rem;
+    white-space: pre-wrap;
+}
+
+#translationHistory {
+    margin-top: 2rem;
+}
+
+#translationHistory div {
+    background-color: #fafafa;
+    border: 1px solid #ddd;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 8px;
+    transition: box-shadow 0.3s ease;
+}
+
+#translationHistory div:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+#translationHistory div strong {
+    color: #00796b;
+}
+
+footer {
+    text-align: center;
+    padding: 1rem;
+    background-color: #00796b;
+    color: white;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
