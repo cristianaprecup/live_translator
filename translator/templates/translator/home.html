@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Translator Home</title>
+    <link rel="icon" type="image/x-icon" href="{% static 'favicon.ico' %}">
+    <script src="{% static 'js/recorder.js' %}"></script>
+    <script>
+        function getCookie(name) {
+            let cookieValue = null;
+            if (document.cookie && document.cookie !== '') {
+                const cookies = document.cookie.split(';');
+                for (let i = 0; i < cookies.length; i++) {
+                    const cookie = cookies[i].trim();
+                    if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                        break;
+                    }
+                }
+            }
+            return cookieValue;
+        }
+        const csrftoken = getCookie('csrftoken');
+    </script>
+</head>
+<body>
+    <h1>Welcome to the Live Translation App</h1>
+    <button onclick="startRecording()">Start Recording</button>
+    <button onclick="stopRecording()" disabled>Stop Recording</button>
+    <p>Status: <span id="status">Idle</span></p>
+    <audio controls hidden></audio>
+    <div>
+        <h2>Translated Text:</h2>
+        <p id="translatedText"></p>
+    </div>
+    <script src="{% static 'js/audio.js' %}"></script>
+</body>
+</html>
